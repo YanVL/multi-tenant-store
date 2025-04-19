@@ -13,3 +13,8 @@ Route::get('dashboard', function () {
 
 require __DIR__.'/settings.php';
 require __DIR__.'/auth.php';
+
+foreach (config('tenancy.central_domains') as $domain) {
+    Route::domain($domain)->group(function () {
+    });
+}
