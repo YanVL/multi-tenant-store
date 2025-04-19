@@ -22,5 +22,9 @@ class DatabaseSeeder extends Seeder
         // ]);
 
         $this->call(TenantSeed::class);
+
+        \App\Models\Tenant::all()->runForEach(function () {
+            \App\Models\User::factory()->create();
+        });
     }
 }

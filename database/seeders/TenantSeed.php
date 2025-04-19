@@ -11,5 +11,8 @@ class TenantSeed extends Seeder
     {
         $tenant = Tenant::create(['id' => 'tenant1']);
         $tenant->domains()->create(['domain' => 'tenant1.localhost']);
+
+        $tenant = Tenant::create(['id' => 'tenant2']);
+        $tenant->domains()->create(['domain' => 'tenant2.localhost']);
     }
 }
