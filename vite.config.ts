@@ -6,11 +6,19 @@ import { resolve } from 'node:path';
 import { defineConfig } from 'vite';
 
 export default defineConfig({
+    server: {
+        host: true,               // equivale a 0.0.0.0
+        hmr: {
+          host: 'tenant1.localhost',
+          protocol: 'ws',
+        },
+      },
     plugins: [
         laravel({
             input: ['resources/js/app.ts'],
             ssr: 'resources/js/ssr.ts',
             refresh: true,
+            
         }),
         tailwindcss(),
         vue({
